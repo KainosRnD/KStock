@@ -67,17 +67,14 @@
     {
     $.ajax({
      type: "GET",
-     url: 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%27KNOS.L%27)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=',
+     url: 'https://ir.euroinvestor.com/ServiceEngine/api/json/reply/RequestStockDataBundle?apiversion=1&solutionID=2080&customerKey=kainos&instrumentTypes=Listing&CustomFormat=EmperorDesign',
     dataType: 'json',
      success: function(data) {
-            var n = parseFloat(data.query.results.quote.LastTradePriceOnly).toFixed(2);
-            var Change = data.query.results.quote.Change;
-            console.log(data);
+            var n = parseFloat(data.data[0].lastTradePrice).toFixed(2);
+            //var Change = data.query.results.quote.Change;
+            console.log(data.data[0].lastTradePrice);
             console.log(n);
-            console.log(Change);
             $('#KNOSprice').html(n);
-            //if(Change[0] == "-"){KNOSprice.style.color = "red";}
-            //else{KNOSprice.style.color = "#00d04a";}
             
      }
     });
