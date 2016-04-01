@@ -65,12 +65,25 @@
 </script><script type="text/javascript">
     function getSummary()
     {
+    //$.ajax({
+    // type: "GET",
+    // url: 'https://ir.euroinvestor.com/ServiceEngine/api/json/reply/RequestStockDataBundle?apiversion=1&solutionID=2080&customerKey=kainos&instrumentTypes=Listing&CustomFormat=EmperorDesign',
+    //dataType: 'json',
+    // success: function(data) {
+    //        var n = parseFloat(data.data[0].lastTradePrice).toFixed(2);
+    //        //var Change = data.query.results.quote.Change;
+    //        console.log(data.data[0].lastTradePrice);
+    //        console.log(n);
+    //        $('#KNOSprice').html(n);
+            
+    // }
+    //});
     $.ajax({
      type: "GET",
      url: 'https://ir.euroinvestor.com/ServiceEngine/api/json/reply/RequestStockDataBundle?apiversion=1&solutionID=2080&customerKey=kainos&instrumentTypes=Listing&CustomFormat=EmperorDesign',
     dataType: 'json',
      success: function(data) {
-            var n = parseFloat(data.data[0].lastTradePrice).toFixed(2);
+            var n = parseFloat(2540.3).toFixed(2);
             //var Change = data.query.results.quote.Change;
             console.log(data.data[0].lastTradePrice);
             console.log(n);
